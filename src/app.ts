@@ -13,6 +13,12 @@ const app = express();
 const PORT = process.env.PORT || 3400;
 
 app.use(express.json());
+
+// test server
+app.get("/", (req, res) => {
+  res.status(200).send("Welcom to Postgres Resturant server");
+});
+
 app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", authRoutes);
 app.use("/api/menu", menuRoutes);

@@ -13,6 +13,7 @@ export const addCategory = async (req: Request, res: Response) => {
 
     res.status(201).json({ message: "Category added successfully", category });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Error adding category" });
   }
 };
@@ -34,6 +35,7 @@ export const addItem = async (req: Request, res: Response) => {
 
     res.status(201).json({ message: "Item added successfully", item });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Error adding item" });
   }
 };
@@ -44,6 +46,7 @@ export const getCategories = async (_req: Request, res: Response) => {
     const categories = await categoryRepository.find();
     res.json(categories);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Error fetching categories" });
   }
 };
@@ -58,6 +61,7 @@ export const getItemsByCategory = async (req: Request, res: Response) => {
     });
     res.json(items);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Error fetching items" });
   }
 };

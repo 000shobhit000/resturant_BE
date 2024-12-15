@@ -1,4 +1,4 @@
-import { AppDataSource } from "../db";
+import { AppDataSource } from "../config/db";
 import { User } from "../entities/User";
 import { MongoClient } from "mongodb";
 import cron from "node-cron";
@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017";
+const mongoUri = process.env.MONGO_URI || "";
 const client = new MongoClient(mongoUri);
 const dbName = "restaurantDB";
 
